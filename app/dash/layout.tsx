@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   const { userName, setUserName } = useUserContext()
   useEffect(() => {
     const localStorageUserName = localStorage.getItem('userName')
-    if (localStorageUserName === null) {
+    if (localStorageUserName === null || localStorageUserName === '') {
       router.push('/')
     } else {
       setUserName(localStorageUserName)

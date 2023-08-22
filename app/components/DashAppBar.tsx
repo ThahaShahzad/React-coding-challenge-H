@@ -14,6 +14,7 @@ export default function ButtonAppBar() {
   const { userName, setUserName } = useUserContext()
   const handleSubmit = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault()
+    localStorage.setItem('userName', '')
     setUserName('')
     router.push('/')
   }
