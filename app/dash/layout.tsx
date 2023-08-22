@@ -8,11 +8,13 @@ import { useRouter } from 'next/navigation'
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const router = useRouter()
-  const { userName } = useUserContext()
+  const { userName, setUserName } = useUserContext()
   useEffect(() => {
-    console.log(userName)
-    if (userName === '' || userName === undefined || userName === null) {
+    const localStorageUserName = localStorage.getItem('userName')
+    if (localStorageUserName === null) {
       router.push('/')
+    } else {
+      setUserName(localStorageUserName)
     }
   }, [])
 

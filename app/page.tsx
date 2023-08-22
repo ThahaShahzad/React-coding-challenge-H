@@ -17,6 +17,7 @@ export default function Page() {
     const data = new FormData(event.currentTarget)
     const userName = data.get('userName') as string
     setUserName(userName)
+    localStorage.setItem('userName', userName)
     router.push('/dash')
   }
 
